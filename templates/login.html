@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+
+<div class="pai_login">
+   <div class="card_login">
+       <form class="form-somar" action="{{ url_for('login') }}" method="post">
+           <h3>Login</h3>
+           <label for="input_cpf"> email: </label>
+           <input id="input_cpf" placeholder="Digite o email" type="email" name="form-email" class="form-control w-100">
+
+           <label for="input_senha">Senha:</label>
+           <input id="input_senha" placeholder="Digite a senha" type="password" name="form-senha"
+                  class="form-control w-100">
+
+           <button type="submit" class="btn btn-info">Entrar</button>
+           <br>
+           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+               Cadastre-se
+           </button>
+       </form>
+   </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastre-se</h1>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <div class="modal-body">
+               <form class="cadastrinho" action="{{url_for('cadastro_usuario')}}" method="post">
+                   <label for="input_nome">Nome:</label>
+                   <input id="input_nome" placeholder="Digite o nome" type="text" name="form-nome"
+                       class="form-control w-100">
+
+                   <label for="input_data">Data de nascimento:</label>
+                   <input id="input_data" placeholder="Digite a data de nascimento" type="date" name="form-nascimento"
+                       class="form-control w-100">
+
+                   <label for="input_CPFzinho">CPF:</label>
+                   <input id="input_CPFzinho" placeholder="Digite o cpf" type="number" name="form_cpf"><br><br>
+
+                   <label for="input_email">Email:</label>
+                   <input id="input_email" placeholder="Digite o email" type="text" name="form_email"><br><br>
+
+                   <label for="input_senhinha">Senha:</label>
+                   <input id="input_senhinha" placeholder="Digite a senha" type="password"
+                          name="form_senha"><br><br>
+
+                   <label for="input_cargo">Cargo:</label>
+                   <input id="input_cargo" placeholder="Digite o Cargo" type="text" name="form-cargo"
+                          class="form-control w-100">
+
+                   <label for="input_salario">Salário:</label>
+                   <input id="input_salario" placeholder="Digite o salário" type="number" name="form-salario"
+                          class="form-control w-100">
+
+
+                   <button type="submit" class="btn btn-primary">
+                       Cadastre-se
+                   </button>
+               </form>
+           </div>
+       </div>
+   </div>
+</div>
+
+   {% endblock %}
