@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, flash, request, redirect
 from sqlalchemy.exc import SQLAlchemyError
 
+from api_routes import routes
 from database import db_session, Funcionario
 from sqlalchemy import select, and_, func
 from flask_login import LoginManager, login_required, login_user, logout_user, current_user
@@ -66,6 +67,20 @@ def login():
         return render_template('login.html')
 
 
+
+@app.route('/gatos')
+def listar_gatos():
+    gatos = routes.get_gatos()
+
+    for gato in gatos:
+        gato["temperament"] = gato["temperament"].split(',')
+        gato["image"] = routes.get_image()["url"]
+
+
+    return render_template('gatos.html', gatos=gatos)
+
+
+
 @app.route('/logout')
 def logout():
     logout_user()
@@ -78,6 +93,7 @@ def cadastro_usuario():
         nome = request.form.get('form-nome')
         email = request.form.get('form-email')
         senha = request.form.get('form-senha')
+
 
         if not nome or not email or not senha:
             flash('Por favor preencher os campos', 'danger')
@@ -127,7 +143,7 @@ def geometria():
 @app.route('/funcionarios')
 def funcionarios():
     funcionarios_sql = select(Funcionario)
-    funcionarios_resultado = db_session.execute(funcionarios_sql).scalar().all()
+    funcionarios_resultado = db_session.execute(funcionarios_sql).scalars().all()
     return render_template("funcionarios.html", lista_funcionarios=funcionarios_resultado)
 
 @app.route('/somar', methods=['GET', 'POST'])
@@ -283,6 +299,12 @@ def hexagono_perimetro():
         else:
             flash("Preencha o campo", "alert-danger")
     return render_template("geometria.html")
+
+@app.route('/animais')
+def animais():
+    return render_template('animais.html')
+
+
 
 
 

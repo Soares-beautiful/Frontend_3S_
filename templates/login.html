@@ -5,16 +5,17 @@
 
 <div class="pai_login">
    <div class="card_login">
-       <form class="form-somar" action="{{ url_for('login') }}" method="post">
+       <form id="form-login" class="form-somar" action="{{ url_for('login') }}" method="post">
            <h3>Login</h3>
-           <label for="input_cpf"> email: </label>
-           <input id="input_cpf" placeholder="Digite o email" type="email" name="form-email" class="form-control w-100">
+           <label for="input-email"> email: </label>
+           <input id="input-email" placeholder="Digite o email" type="email" name="form-email" class="form-control w-100">
 
-           <label for="input_senha">Senha:</label>
-           <input id="input_senha" placeholder="Digite a senha" type="password" name="form-senha"
+           <label for="input-senha">Senha:</label>
+           <input id="input-senha" placeholder="Digite a senha" type="password" name="form-senha"
                   class="form-control w-100">
 
            <button type="submit" class="btn btn-info">Entrar</button>
+           <a class="btn btn-danger my-2" onclick="limpaInputsLogin()">Cancelar</a>
            <br>
            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                Cadastre-se
@@ -35,30 +36,30 @@
            </div>
            <div class="modal-body">
                <form class="cadastrinho" action="{{url_for('cadastro_usuario')}}" method="post">
-                   <label for="input_nome">Nome:</label>
-                   <input id="input_nome" placeholder="Digite o nome" type="text" name="form-nome"
+                   <label for="input-nome">Nome:</label>
+                   <input id="input-nome" placeholder="Digite o nome" type="text" name="form-nome"
                        class="form-control w-100">
 
-                   <label for="input_data">Data de nascimento:</label>
-                   <input id="input_data" placeholder="Digite a data de nascimento" type="date" name="form-nascimento"
+                   <label for="input-data">Data de nascimento:</label>
+                   <input id="input-data" placeholder="Digite a data de nascimento" type="date" name="form-nascimento"
                        class="form-control w-100">
 
-                   <label for="input_CPFzinho">CPF:</label>
-                   <input id="input_CPFzinho" placeholder="Digite o cpf" type="number" name="form_cpf"><br><br>
+                   <label for="input-cpf2">CPF:</label>
+                   <input id="input-cpf2" placeholder="Digite o cpf" type="number" name="form_cpf"><br><br>
 
-                   <label for="input_email">Email:</label>
-                   <input id="input_email" placeholder="Digite o email" type="text" name="form_email"><br><br>
+                   <label for="input-email2">Email:</label>
+                   <input id="input-email2" placeholder="Digite o email" type="text" name="form-email"><br><br>
 
-                   <label for="input_senhinha">Senha:</label>
-                   <input id="input_senhinha" placeholder="Digite a senha" type="password"
-                          name="form_senha"><br><br>
+                   <label for="input-senha2">Senha:</label>
+                   <input id="input-senha2" placeholder="Digite a senha" type="password"
+                          name="form-senha2"><br><br>
 
-                   <label for="input_cargo">Cargo:</label>
-                   <input id="input_cargo" placeholder="Digite o Cargo" type="text" name="form-cargo"
+                   <label for="input-cargo2">Cargo:</label>
+                   <input id="input-cargo2" placeholder="Digite o Cargo" type="text" name="form-cargo"
                           class="form-control w-100">
 
-                   <label for="input_salario">Salário:</label>
-                   <input id="input_salario" placeholder="Digite o salário" type="number" name="form-salario"
+                   <label for="input-salario2">Salário:</label>
+                   <input id="input-salario2" placeholder="Digite o salário" type="number" name="form-salario"
                           class="form-control w-100">
 
 

@@ -5,44 +5,45 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Novo Funcionário
+    Novo Funcionário
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form class="form-somar" action="{{ url_for('funcionarios') }}" method="post">
-            <label>
-                Nome:
-                <input placeholder="Digite o nome" name="form-nome" class="form-control w-100">
-                Data:
-                <input placeholder="Digite o data" name="form-data" class="form-control w-100">
-                Cpf:
-                <input placeholder="Digite o cpf" name="form-cpf" class="form-control w-100">
-                Email:
-                <input placeholder="Digite o email" name="form-email" class="form-control w-100">
-                Senha:
-                <input placeholder="Digite a senha" name="form-senha" class="form-control w-100">
-                Cargo:
-                <input placeholder="Digite o cargo" name="form-cargo" class="form-control w-100">
-                Salario:
-                <input placeholder="Digite o novo salario" name="form-salario" class="form-control w-100">
-            </label>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-somar" action="{{ url_for('funcionarios') }}" method="post">
+                    <label>
+                        Nome:
+                        <input placeholder="Digite o nome" name="form-nome" class="form-control w-100">
+                        Data:
+                        <input placeholder="Digite o data" name="form-data" class="form-control w-100">
+                        Cpf:
+                        <input placeholder="Digite o cpf" name="form-cpf" class="form-control w-100">
+                        Email:
+                        <input placeholder="Digite o email" name="form-email" class="form-control w-100">
+                        Senha:
+                        <input placeholder="Digite a senha" name="form-senha" class="form-control w-100">
+                        Cargo:
+                        <input placeholder="Digite o cargo" name="form-cargo" class="form-control w-100">
+                        Salario:
+                        <input placeholder="Digite o novo salario" name="form-salario" class="form-control w-100">
+                    </label>
 
-            <button type="submit" class="btn btn-info">Cadastrar</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-      </div>
+                    <button type="submit" class="btn btn-info">Cadastrar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <table class="table">
@@ -64,17 +65,17 @@
     {% for funcionario in lista_funcionarios %}
 
 
-        <tr>
-            <th>{{ funcionario.id }}</th>
-            <td>{{ funcionario.nome }}</td>
-            <td>{{ funcionario.data_nascimento }}</td>
-            <td>{{ funcionario.cpf }}</td>
-            <td>{{ funcionario.email }}</td>
-            <td>{{ funcionario.senha }}</td>
-            <td>{{ funcionario.cargo }}</td>
-            <td>{{ funcionario.salario }}</td>
-            <td><a href=""><i class="bi-pencil"></i> </a> <a href=""><i class="bi bi-trash text-danger"></i></a></td>
-        </tr>
+    <tr>
+        <th>{{ funcionario.id }}</th>
+        <td>{{ funcionario.nome }}</td>
+        <td>{{ funcionario.data_nascimento }}</td>
+        <td>{{ funcionario.cpf }}</td>
+        <td>{{ funcionario.email }}</td>
+        <td>{{ funcionario.senha }}</td>
+        <td>{{ funcionario.cargo }}</td>
+        <td>{{ funcionario.salario }}</td>
+        <td><a href=""><i class="bi-pencil"></i> </a> <a href=""><i class="bi bi-trash text-danger"></i></a></td>
+    </tr>
     {% endfor %}
     </tbody>
 </table>
